@@ -47,6 +47,7 @@ If you'd like to compile the executable yourself, after completing all the insta
 
 *Note that PyInstaller has a thing where [it may be seen as a trojan by your antivirus](https://stackoverflow.com/questions/43777106/program-made-with-pyinstaller-now-seen-as-a-trojan-horse-by-avg). There is no malicious code in this project (see all the files), but if this is an issue you can try out the code on the `console_approach` branch (which doesn't use Pyinstaller) or download the .exe directly. The given .exe should not raise a virus error.*
 
+I've also included a copy of the executable on [the release page](https://github.com/HannahGuo/Idol-Recognition/releases/tag/v1.0.0).
 
 ## Project Structure
 ### Main Branch
@@ -89,6 +90,7 @@ Thankfully, [gallery-dl](https://github.com/mikf/gallery-dl) exists, so I found 
 - [ ] Add a group setting where each member is unique (weighting system to handle ties)
 - [ ] Improve `save_faces` function to skip duplicates where the numpy array (and possibly file name) is identical to the newly generated one
 - [ ] Come up with a better way to sync training_faces and the `training_data` branch
+- [ ] Make the executable smaller
 
 ## Credits
 - [Garet Font](https://garet.spacetype.co/)
