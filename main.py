@@ -24,6 +24,44 @@ MODEL = "hog"
 known_faces = {}
 
 
+def save_faces_member(group, member):
+    """
+    Converts and saved image files into npy files. This makes loading *much* faster. This function only needs to be
+    run once for an initial conversion. This function is set up so that the images are directly under with a numpy array
+    Same thing as save_faces but for individual members
+    e.g. training_faces -> BTS -> JHOPE -> <image files> and numpy folder
+    :param group: Name of group to save.
+    :param member: Member from the group to save.
+    """
+    group = group.upper()
+    name = member.upper()
+    group_dir = Path(KNOWN_FACES_DIR, group, name)
+
+    print("Saving known faces")
+
+    for filename in os.listdir(Path(group_dir)):
+        if filename == "numpy":  # skip numpy folder
+            continue
+
+        print(filename)
+        image = face_recognition.load_image_file(Path(group_dir, filename))
+        face_bounding_boxes = face_recognition.face_locations(image)
+
+        if len(face_bounding_boxes) == 1:
+            encoding = face_recognition.face_encodings(image)[0]
+            new_file_name = filename.split(".")[0]
+
+            if not Path(group_dir, "numpy").is_dir():
+                os.mkdir(Path(group_dir, "numpy"))
+
+            if not Path(group_dir, "numpy", new_file_name).is_file():
+                numpy.save(str(Path(group_dir, "numpy", new_file_name)), encoding)
+        else:
+            print("INVALID FILE", name, filename)
+
+    print("Known faces for ", name, "saved!")
+
+
 def save_faces(group):
     """
     Converts and saved image files into npy files. This makes loading *much* faster. This function only needs to be
@@ -219,7 +257,7 @@ if __name__ == "__main__":
     # Could technically be put in the match_faces_ss function
     # load all the faces (uncomment to load a group)
     load_faces("BTS")
-    # load_faces("ITZY")
+    load_faces("ITZY")
 
     print("Enter ` key to run facial recognition and 1 to quit ")
     while True:
