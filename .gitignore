@@ -1,0 +1,8 @@
+unknown_faces
+.vs
+.idea
+build
+__pycache__
+dist
+.libs
+face_recognition_models
