@@ -1,8 +1,8 @@
-The original program I wrote that uses key presses - see the bottom of main.py for usage.
+All the images used for training. 
 
-Copy face_recognition_models and .libs from scipy
+Since the images aren't needed once they have been converted to numpy arrays, I decided to put these on a separate branch.
 
-https://www.flaticon.com/free-icon/kpop_3798300
-https://garet.spacetype.co/
+The structures is (pretty self-explanatory):
+`training_faces -> <group> -> <members>`
 
-Font doesn't work on Linux systems
+Inside each member is both the numpy folder and the images.
