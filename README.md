@@ -1,8 +1,5 @@
-The original program I wrote that uses key presses - see the bottom of main.py for usage.
+The original program I wrote that uses key presses - see the bottom of main.py for usage. Instead of using a tkinter window, it uses the console (but still shows a window with the processed image)
 
-Copy face_recognition_models and .libs from scipy
+This was much more experimental (less polished) and is probably easier to try out then for me to explain. 
 
-https://www.flaticon.com/free-icon/kpop_3798300
-https://garet.spacetype.co/
-
-Font doesn't work on Linux systems
+See the [main README.md](https://github.com/HannahGuo/Idol-Recognition/blob/main/README.md) for more information.
